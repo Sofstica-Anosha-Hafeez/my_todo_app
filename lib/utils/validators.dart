@@ -1,10 +1,4 @@
-// CHANGE (NEW FILE): All form validation rules now live in one place.
-// Before, the rules were written directly inside sign_in_screen.dart.
-// Keeping them here makes them easy to find, reuse and change.
 
-/// Each function returns:
-///   - null          -> the value is valid
-///   - a String text -> the error message to show under the text field
 class Validators {
   // Private constructor: nobody should create a `Validators()` object,
   // we only use the static functions like `Validators.email(...)`.
@@ -31,7 +25,7 @@ class Validators {
     return null;
   }
 
-  /// CHANGE: strong password rules. Used ONLY when creating an account.
+ 
   /// Rules: 8-64 chars, 1 uppercase, 1 lowercase, 1 number,
   /// 1 special character, and no spaces.
   static String? newPassword(String? value) {
@@ -57,7 +51,7 @@ class Validators {
     return null;
   }
 
-  /// Why: users who created their account before these rules existed
+  
   /// may have an older, weaker password. They must still be able to log in.
   static String? loginPassword(String? value) {
     if (value == null || value.isEmpty) return 'Password is required';
